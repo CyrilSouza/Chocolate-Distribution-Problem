@@ -1,0 +1,32 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Solution {
+    public static int Min(int[] nums)
+    {
+        Arrays.sort(nums);
+        int n=nums.length;
+        int m=3;
+        int minw=0;
+        int maxw=0;
+        int ans=Integer.MAX_VALUE;
+        
+        for(int i=0;i<=n-m;i++){
+            minw=nums[i];
+            maxw=nums[i+m-1];
+            int gap=maxw-minw;
+            
+            if(gap<ans){
+                ans=gap;
+            }
+        }
+        return ans;
+        
+    }
+
+    public static void main(String[] args){
+        int[] nums={ 7,3,2,4,9,12,56};
+        int m=3;
+        System.out.println("Chocolate can be distribted in a way that will give minimum of:"+Min(nums));
+    }
+}
